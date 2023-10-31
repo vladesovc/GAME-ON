@@ -1,12 +1,14 @@
 const router = require('express').Router();
-const { Games, Users } = require('../../models');
-// const withAuth = require('../utils/auth');
 
-// root/api/games - Get all games
+const { Games, Users } = require('../models');
+
+
+// root address
 router.get('/', async (req, res) => {
     try {
         // Get all projects and JOIN with user data
         const gameData = await Games.findAll({
+
             include: [{ model: Users }]
         });
 
@@ -42,3 +44,4 @@ router.get('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
