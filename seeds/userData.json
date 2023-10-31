@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Corey",
+        "email": "cvladesov@gmail.com",
+        "password": "password12345"
+      },
+      {
+        "name": "Beth",
+        "email": "bdeutmeyer@gmail.com",
+        "password": "password12345"
+      },
+      {
+        "name": "Liz",
+        "email": "lfischsticks@gmail.com",
+        "password": "password12345"
+      },
+      {
+        "name": "Taylor",
+        "email": "tcannon@gmail.com",
+        "password": "password12345"
+      },
+      {
+        "name": "Poornima",
+        "email": "bestteacher@gmail.com",
+        "password": "password12345"
+      },
+      {
+        "name": "Sam",
+        "email": "ogTA@gmail.com",
+        "password": "password12345"
+      },
+      {
+        "name": "Austin",
+        "email": "newguyTA@gmail.com",
+        "password": "password12345"
+      }
+]
