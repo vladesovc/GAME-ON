@@ -1,22 +1,39 @@
-// const { Model, dataTypes } = require('sequelize')
-// const sequilize = require('../config/connection.js');
+const { Model, dataTypes, DataTypes } = require('sequelize')
+const sequilize = require('../config/connection.js');
 
-class User extends Model {}
-
-    User.init(
-        {
-            id: {
-                type: DataType.INTEGER,
-                allowNull: false,
-                primaryKey: true,
-                autoIncrement: true,
+class User extends Model{}
+Games.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
             },
-            user_name: {
-                type: DataType.string,
-                allowNull: false,
-                unique: true,
-
-
-            }
-        }
-    )
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        thumbnail: {
+            type: DataTypes.STRING,
+        },
+        short_description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        game_url: {
+            type: DataTypes.STRING,
+        },
+        genre: {
+            type: DataTypes.STRING,
+        },
+        platform: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        developer: {
+            type: DataTypes.STRING,
+        },
+    }
+)
