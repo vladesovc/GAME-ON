@@ -42,7 +42,7 @@ Reviews.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Saved',
+    modelName: 'reviews',
   }
 );
 
