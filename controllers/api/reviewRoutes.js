@@ -6,16 +6,19 @@ const withAuth = require('../../utils/auth.js');
 // POST route to create a new review, using Auth to check if the user is logged in
 router.post('/reviews', withAuth, async (req, res) => {
     try {
-    const { /* whatever is in the model*/ } = req.body;
+    const { user_id, game_id, text, stars } = req.body;
 
         // Create a new review
         const newReview = await Review.create({
-            //  whatever is in the model
+          user_id,
+          game_id,
+          text,
+          stars
         });
         
         res.status(201).json({ Reviews: newReview, message: 'Success! Review has been posted!' });
     } catch (err) {
-      res.status(500).json({ err: 'Failed while creating the review. Please try again.' });
+      res.status(500).json({ err: 'https://http.dog/500.json' });
     }
   });
 
