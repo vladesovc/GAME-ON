@@ -1,6 +1,6 @@
-// const router = require('express').Router();
-// const { Games, Users, Reviews } = require('../models');
-// const withAuth = require('../utils/auth.js');
+const router = require('express').Router();
+const { Games, Users, Reviews } = require('../models');
+const withAuth = require('../utils/auth.js');
 
 // // root/dashboard
 // router.get('/', withAuth, async (req, res) => {
@@ -14,7 +14,6 @@
 //     }
 // });
 
-// module.exports = router;
 
 // router.get('/profile', withAuth, async (req, res) => {
 //     try {
@@ -34,3 +33,6 @@
 //       res.status(500).json(err);
 //     }
 //   });
+
+
+module.exports = router;
