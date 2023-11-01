@@ -1,4 +1,6 @@
-[
+const { Games } = require('../models');
+
+const gamesdata = [
     {
         "id": 540,
         "title": "Overwatch 2",
@@ -1529,4 +1531,8 @@
         "platform": "PC (Windows)",
         "developer": "Juvty Worlds Ltd."
     }
-]
+];
+
+const seedGames = () => Games.bulkCreate(gamesdata);
+
+module.exports = seedGames;
