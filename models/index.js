@@ -1,9 +1,25 @@
-// Const Games = require('./Games.js');
-// Const Users = require('./Users.js');
-// Const Saved = require('./Saved.js');
+const Games = require('./Games.js');
+const Users = require('./Users.js');
+const Saved = require('./Saved.js');
 
-// User.hasmany(Games, {
-//     through: {
-//         model:
-//     },
-// })
+Users.belongsToMany(Games, {
+    through: {
+        model: Saved,
+        unique: false,
+    },
+    as: 'user_choices',
+});
+
+Games.belongsToMany(Users, {
+    through: {
+        model: Saved,
+        unique: false,
+    },
+    as: 'saved_games',
+});
+
+module.exports = {
+    Games,
+    Users,
+    Saved
+};
