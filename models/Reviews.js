@@ -9,6 +9,8 @@ Reviews.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: true,
+        primaryKey: true,
+        autoIncrement: true,
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -42,7 +44,7 @@ Reviews.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Saved',
+    modelName: 'reviews',
   }
 );
 
