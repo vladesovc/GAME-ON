@@ -49,7 +49,10 @@ router.get('/saved', async (req, res) => {
     const { id } = req.params;
     try {
       const deleted = await Saved.destroy({
-        where: { id }
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
       });
       if (deleted) {
         res.json({ message: 'Game removed from Favorites' });
