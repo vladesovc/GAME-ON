@@ -20,7 +20,7 @@ Games.init(
             type: DataTypes.STRING,
         },
         short_description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         game_url: {
@@ -36,7 +36,14 @@ Games.init(
         developer: {
             type: DataTypes.STRING,
         },
-    }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'games',
+      }
 )
 
 module.exports = Games;

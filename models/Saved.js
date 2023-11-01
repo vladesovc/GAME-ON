@@ -7,13 +7,11 @@ Saved.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'users',
         key: 'id',
@@ -21,7 +19,6 @@ Saved.init(
     },
     game_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'games',
         key: 'id',
@@ -29,7 +26,6 @@ Saved.init(
     },
     favorite: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
       defaultValue: false,
     },
   },
