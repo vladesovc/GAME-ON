@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+<<<<<<< HEAD
     "seed": "node seeds/seed.js"
+=======
+    "seed": "node seeds/index.js"
+>>>>>>> c58e95809b35f632be131ceeeb750d38026bbe09
   },
   "keywords": [],
   "author": "",

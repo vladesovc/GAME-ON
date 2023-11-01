@@ -1,46 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Saved extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Saved extends Model {}
 
 Saved.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'users',
-        key: 'id'
+        key: 'id',
       },
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
+    game_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'games',
+        key: 'id',
       },
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
-      },
+    favorite: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   },
   {
@@ -48,7 +34,7 @@ Saved.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Games',
+    modelName: 'saved',
   }
 );
 
