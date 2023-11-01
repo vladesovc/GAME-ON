@@ -1,6 +1,7 @@
 const Games = require('./Games.js');
 const Users = require('./Users.js');
 const Saved = require('./Saved.js');
+const Reviews = require('./Reviews.js');
 
 Users.belongsToMany(Games, {
     through: {
@@ -18,8 +19,25 @@ Games.belongsToMany(Users, {
     as: 'saved_games',
 });
 
+Users.belongsToMany(Games, {
+    through: {
+        model: Reviews,
+        unique: false,
+    },
+    as: 'user_reviews',
+});
+
+Games.belongsToMany(Users, {
+    through: {
+        model: Reviews,
+        unique: false,
+    },
+    as: 'reviewed_games',
+});
+
 module.exports = {
     Games,
     Users,
-    Saved
+    Saved,
+    Reviews,
 };
