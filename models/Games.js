@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection.js');
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/connection.js');
 
 class Games extends Model{}
 class Games extends Model{}
@@ -20,7 +22,7 @@ Games.init(
             type: DataTypes.STRING,
         },
         short_description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         game_url: {
