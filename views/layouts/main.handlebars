@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,37 +20,34 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{homeLink}}">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              {{#if logged_in}}
-              <li><a class="dropdown-item" href="{{accountLink}}">Account</a></li>
-              <li><a class="dropdown-item" href="#">Favorites</a></li>
-              {{/if}}
-            </ul>
-          </li>
-
           <li class="nav-item">
-            <li><a class="nav-link active" href="/login">Sign Up</li>
+            <a class="nav-link active" href="/seeAllGames">Search for games</a>
           </li>
+          {{#if logged_in}}
+          <li class="nav-item">
+            <a class="nav-link active" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/logout">Log out</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link active" href="/login">Log in</a>
+          </li>
+          {{/if}}
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
 
-{{{body}}}
+  {{{body}}}
 
   {{#if logged_in}}
   <script src="/public/js/logout.js"></script>
   {{/if}}
 
 </body>
+
 </html>
