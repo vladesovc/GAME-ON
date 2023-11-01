@@ -38,7 +38,7 @@ router.get('/saved', async (req, res) => {
         return res.status(404).json({ message: 'Fail: Saved game not found' });
       }
       // Render a view displaying the saved game
-      res.render('SavedItem', { savedItem });
+      res.render('SavedGame', { savedGame });
     } catch (err) {
       res.status(500).json({ message: 'Failed. Please try again.' });
     }
@@ -57,7 +57,7 @@ router.get('/saved', async (req, res) => {
         res.status(404).json({ message: 'Game not found in Favorites' });
       }
     } catch (err) {
-      res.status(500).json({ err: err.message });
+      res.status(500).json({ message: 'Error removing Game from favorites within server.' });
     }
   });
 
