@@ -1,9 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Saved extends Model {
-  checkPassword(loginPw) {}
-}
+class Saved extends Model {}
 
 Saved.init(
   {
@@ -40,5 +38,4 @@ Saved.init(
   }
 );
 
-module.exports = Saved;
 module.exports = Saved;
