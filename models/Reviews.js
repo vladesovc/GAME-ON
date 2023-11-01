@@ -6,12 +6,12 @@ class Reviews extends Model {}
 Reviews.init(
    {
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: true,
-      primaryKey: true,
-      autoIncrement: true,
-  },
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -44,7 +44,7 @@ Reviews.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Saved',
+    modelName: 'reviews',
   }
 );
 
