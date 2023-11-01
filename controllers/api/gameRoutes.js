@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Games, Users } = require('../models');
+const { Games, Users } = require('../../models');
 
 
 // root address
