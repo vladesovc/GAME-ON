@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { Saved } = require('../models'); 
+const { Saved } = require('../../models'); 
 
 // gets all saved data
 router.get('/saved', async (req, res) => {
