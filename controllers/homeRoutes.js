@@ -4,40 +4,40 @@ const { Games, Users, Reviews } = require('../models');
 //Render homepage
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const allGames = await Games.findAll({
-      include: [{
-        model: Reviews,
-        attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],]
-      }],
-    });
+//     // Get all projects and JOIN with user data
+//     const allGames = await Games.findAll({
+//       include: [{
+//         model: Reviews,
+//         attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],]
+//       }],
+//     });
 
-    const calculateAverage = async () => {
-      try {
-        const result = await Reviews.findAll({
-          attributes: [
-            [sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],
-          ],
-        });
+//     const calculateAverage = async () => {
+//       try {
+//         const result = await Reviews.findAll({
+//           attributes: [
+//             [sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],
+//           ],
+//         });
 
-        const averageValue = result[0].dataValues.averageValue;
-        console.log('Rating:', averageValue);
-        calculateAverage();
+//         const averageValue = result[0].dataValues.averageValue;
+//         console.log('Rating:', averageValue);
+//         calculateAverage();
 
-      } catch (error) {
-        console.error('Error calculating average:', error);
-      }
-    };
-    const shuffledGames = shuffleArray(allGames);
+//       } catch (error) {
+//         console.error('Error calculating average:', error);
+//       }
+//     };
+//     const shuffledGames = shuffleArray(allGames);
 
-    const carouselGames = shuffledGames.slice(6);
+//     const carouselGames = shuffledGames.slice(6);
     
-// Serialize data so the template can read it
-const games = carouselGames.map((game) => game.get({ plain: true }));
+// // Serialize data so the template can read it
+// const games = carouselGames.map((game) => game.get({ plain: true }));
 
 // Pass serialized data and session flag into template
 res.render('homepage', {
-  ...games,
+  // ...games,
   logged_in: req.session.logged_in
 });
   } catch (err) {
