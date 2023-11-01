@@ -1,7 +1,7 @@
 const { Model, dataTypes, DataTypes } = require('sequelize')
 const sequilize = require('../config/connection.js');
 
-class User extends Model{}
+class Games extends Model{}
 Games.init(
     {
         id: {
@@ -37,3 +37,5 @@ Games.init(
         },
     }
 )
+
+module.exports = Games;
