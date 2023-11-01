@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
+
 const { Games, Users, Reviews } = require('../../models');
+
 
 
 // root address
