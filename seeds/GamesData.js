@@ -87,7 +87,7 @@ const gamesdata = [
         "thumbnail": "https:\/\/www.freetogame.com\/g\/475\/thumbnail.jpg",
         "short_description": "If you’ve been looking for a game to scratch that open-world action RPG itch, one with perhaps a bit of Asian flair, then you’re going to want to check out miHoYo’s Genshin Impact.",
         "game_url": "https:\/\/www.freetogame.com\/open\/genshin-impact",
-        "genre": "Action RPG",
+        "genre": "ARPG",
         "platform": "PC (Windows)",
         "developer": "miHoYo"
     },
@@ -467,7 +467,7 @@ const gamesdata = [
         "thumbnail": "https:\/\/www.freetogame.com\/g\/568\/thumbnail.jpg",
         "short_description": "A free-to-play CCG set in the Warhammer 40K universe.",
         "game_url": "https:\/\/www.freetogame.com\/open\/warhammer-40000-warpforge",
-        "genre": "Card",
+        "genre": "Card Game",
         "platform": "PC (Windows)",
         "developer": "Everguild Ltd."
     },
