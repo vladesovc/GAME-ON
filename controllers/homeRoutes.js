@@ -15,11 +15,13 @@ router.get('/', async (req, res) => {
 
     const shuffledGames = shuffleArray(gameInfo);
 
-    const carouselGames = shuffledGames.slice(0, 5);
+    const selectedGames = shuffledGames.slice(0, 6);
 
+    const carouselGames = selectedGames.map(obj => obj.thumbnail);
+    carouselGames.unshift('https://media.istockphoto.com/id/1320799591/vector/game-on-neon-game-controller-or-joystick-for-game-console-on-blue-background.jpg?s=2048x2048&w=is&k=20&c=oQVZJ94lIx_-awFWha4S-0J0ZnpZ7JEkzflMJlX79vA=');
 
 res.render('homepage', {
-  ...carouselGames,
+  carouselGames,
   logged_in: req.session.logged_in
 });
     // res.status(200).json(carouselGames);
