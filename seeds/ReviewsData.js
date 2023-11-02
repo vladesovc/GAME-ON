@@ -4,9 +4,9 @@ const reviewsdata = [
     {
         id: 1,
         user_id: 1,
-        game_id: 1,
-        text: "I loved it!",
-        stars: 5
+        game_id: 5,
+        text: "Game is awesome!",
+        stars: 4
     }
 ]
 

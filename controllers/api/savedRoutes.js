@@ -20,27 +20,13 @@ router.get('/saved', async (req, res) => {
 });
 
 // create a new saved item
-router.post('/saved', withAuth, async (req, res) => {
+router.post('/newsaved', withAuth, async (req, res) => {
   try {
     const newSavedGame = await Saved.create(req.body);
     // Redirect to the route that displays the saved games, passing the newly saved game's ID in the URL
     res.redirect(`/saved/${newSavedGame.id}`);
   } catch (err) {
     res.status(400).json({ err: 'Could not find Game by ID. Please ensure info is correct.' });
-  }
-});
-
-// render the newly saved game
-router.get('/saved/:id', withAuth, async (req, res) => {
-  try {
-    const savedGame = await Saved.findByPk(req.params.id);
-    if (!savedGame) {
-      return res.status(404).json({ message: 'Fail: Saved game not found' });
-    }
-    // Render a view displaying the saved game
-    res.render('SavedGame', { savedGame });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed. Please try again.' });
   }
 });
 
