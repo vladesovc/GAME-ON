@@ -4,36 +4,43 @@ const { Reviews } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
 // POST route to create a new review, using Auth to check if the user is logged in
-router.post('/api/reviews', withAuth, async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     const { user_id, game_id, text, stars } = req.body;
-
+    console.log(user_id, game_id, text, stars);
+    
     // Create a new review
-    const newReview = await Review.create({
+    const newReview = await Reviews.create({
       user_id,
       game_id,
       text,
       stars
     });
-
-    res.status(201).json({ Reviews: newReview, message: 'Success! Review has been posted!' });
+   console.log(newReview);
+   const reviewId = newReview.id;
+    res.status(201).json({ review: newReview, id: reviewId});
   } catch (err) {
-    res.status(500).json({ err: 'https://http.dog/500.json' });
+    res.status(500).json({ err: 'Uh oh! Review not created, please try again.' });
   }
 });
 
 // DELETE route to delete a review by ID
-router.delete('/reviews/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const reviewToDelete = await Reviews.destroy({
+    const reviewId = req.params.id;
+
+    // Destroy the review using Sequelize model
+    const deletedReview = await Reviews.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
+        id: reviewId,
+        user_id: req.session.user_id
+      }
     });
-    if (!reviewToDelete) {
-      return res.status(404).json({ message: 'Cannot find Review. Please Try Again.' });
+
+    if (!deletedReview) {
+      return res.status(404).json({ message: 'Cannot find the Review. Please Try Again.' });
     }
+
     res.status(200).json({ message: 'Success! Review deleted!' });
   } catch (err) {
     res.status(500).json({ err: 'Failed to delete the review. Please try again.' });

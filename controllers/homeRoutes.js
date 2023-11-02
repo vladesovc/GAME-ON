@@ -30,6 +30,10 @@ res.render('homepage', {
   }
 });
 
+router.get('/gamesearch', (req, res) => {
+  res.render('gamesearch')
+});
+
 // Render login/signup page  
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
