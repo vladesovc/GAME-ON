@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Games, Users, Reviews } = require('../../models');
 
-
-
 // root address
 router.get('/', async (req, res) => {
     try {
