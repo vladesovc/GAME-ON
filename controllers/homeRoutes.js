@@ -24,7 +24,6 @@ res.render('homepage', {
   carouselGames,
   logged_in: req.session.logged_in
 });
-    // res.status(200).json(carouselGames);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
