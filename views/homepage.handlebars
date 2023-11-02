@@ -1,19 +1,39 @@
 {{!-- Carousel --}}
-  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="{{carouselImage1}}" class="d-block w-100" alt="GAME-ON">
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="{{carouselImage2}}" class="d-block w-100" alt="Play">
-      </div>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{{carouselImage1}}" class="d-block w-100" alt="GAME-ON">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{carouselImage2}}" class="d-block w-100" alt="Play">
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample"
+    aria-expanded="false" aria-controls="collapseWidthExample">
+    Click ME
+  </button>
+</p>
+<div style="min-height: 120px;">
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div class="card card-body" style="width: 300px;">
+      Welcome to GAME-ON website! Driven by passion, we are a global leader in digital interactive entertainment.
+
+      Headquartered in Chicago in Illinos, we develop and deliver games, content, and online services for
+      Internet-connected consoles,
+      mobile devices, and personal computers. Through our cutting-edge games, innovative services, and powerful
+      technologies, we bring worlds with
+      infinite possibilities to everyone worldwide! To active players and fans around the globe!
+    </div>
+  </div>
+</div>
