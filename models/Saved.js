@@ -34,7 +34,7 @@ Saved.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Saved',
+    modelName: 'saved',
   }
 );
 
