@@ -1,3 +1,8 @@
+body {
+    background-color: #71A9F7;
+    
+}
+
 #carouselExampleInterval {
     width: 600px; 
     height: 600px; 
@@ -18,15 +23,8 @@
 
 #newUSup {
     text-align: left;
-    padding-left: 155px;
-    display: inline-block;
-    display: flex;
-    flex-direction: row;
-    
+    padding-left: 45px;
 }
 
-/* #returnUS {
-    text-align: right;
-    padding-right: 155px;
-} */
+
 

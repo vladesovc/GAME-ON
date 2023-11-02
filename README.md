@@ -32,7 +32,11 @@ Taylor
 Cory
 Beth
 
+## Outside Sources
 bootstrap v 5.1.3
+coolors.co
+
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
