@@ -2,31 +2,19 @@
 
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    {{#each carouselGames as |game|}}
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src={{game}} class="d-block w-100" alt="GAME-ON">
+    {{#each carouselGames}}
+    <div class="carousel-item item{{#if @first}} active{{/if}}" data-bs-interval="5000">
+      <img src={{this}} class="d-block w-100" alt="GAME-ON">
     </div>
     {{/each}}
-    {{!-- GAME ON logo  --}}
-    {{!-- <div class="carousel-item active" data-bs-interval="10000">
-      <img src="{{carouselImage1}}" class="d-block w-100" alt="GAME-ON">
-    </div>
-    {{!-- 5 featured games --}}
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage2}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage3}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage4}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage5}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage6}}" class="d-block w-100" alt="Play">
-    </div>
+
+    {{!-- Below is controls that Sam added, but they're not appearing--if we want them, let's take them directly from Bootstrap instead and get rid of these. --}}
+    {{!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span>Left</span>
+    </a>
+     <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span>Right</span>
+    </a> --}}
   </div>
 <p>
 
