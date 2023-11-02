@@ -1,26 +1,25 @@
 {{!-- Carousel --}}
+
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="/public/Assets/GAME1.jpeg" class="d-block w-100" alt="GAME-ON">
+    {{#each carouselGames}}
+    <div class="carousel-item item{{#if @first}} active{{/if}}" data-bs-interval="5000">
+      <img src={{this}} class="d-block w-100" alt="GAME-ON">
     </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="/public/Assets/GAME2.jpeg" class="d-block w-100" alt="Play">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+    {{/each}}
 
-{{!-- <p>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample"
-    aria-expanded="false" aria-controls="collapseWidthExample">
+    {{!-- Below is controls that Sam added, but they're not appearing--if we want them, let's take them directly from Bootstrap instead and get rid of these. --}}
+    {{!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span>Left</span>
+    </a>
+     <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span>Right</span>
+    </a> --}}
+  </div>
+<p>
+
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+
     Click ME
   </button>
 </p>
@@ -34,6 +33,7 @@
       mobile devices, and personal computers. Through our cutting-edge games, innovative services, and powerful
       technologies, we bring worlds with
       infinite possibilities to everyone worldwide! To active players and fans around the globe!
+
     </div>
   </div>
 </div> --}}
