@@ -3,7 +3,7 @@ const { Games, Users, Reviews } = require('../models');
 const withAuth = require('../utils/auth.js');
 
 // // root/dashboard
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const userData = await Users.findByPk(req.session.user_id, {
             attributes: { exclude: ['password', 'email'] },
