@@ -1,48 +1,32 @@
 const router = require('express').Router();
-const { Games, Users, Reviews } = require('../models');
+const { Games, Users, Saved, Reviews } = require('../models');
+// const sequelize = require('../config/connection.js');
+const { Sequelize, DataTypes, Op } = require('sequelize'); // Import Op for aggregation functions
 
-//Render homepage
 router.get('/', async (req, res) => {
   try {
-//     // Get all projects and JOIN with user data
-//     const allGames = await Games.findAll({
-//       include: [{
-//         model: Reviews,
-//         attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],]
-//       }],
-//     });
+    const allGames = await Games.findAll({
+      attributes: [
+        'thumbnail'
+        // [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
+      ],
+    });
+    const gameInfo = allGames.map((game) => game.get({ plain: true }));
 
-//     const calculateAverage = async () => {
-//       try {
-//         const result = await Reviews.findAll({
-//           attributes: [
-//             [sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],
-//           ],
-//         });
+    const shuffledGames = shuffleArray(gameInfo);
 
-//         const averageValue = result[0].dataValues.averageValue;
-//         console.log('Rating:', averageValue);
-//         calculateAverage();
+    const carouselGames = shuffledGames.slice(0, 5);
 
-//       } catch (error) {
-//         console.error('Error calculating average:', error);
-//       }
-//     };
-//     const shuffledGames = shuffleArray(allGames);
 
-//     const carouselGames = shuffledGames.slice(6);
-    
-// // Serialize data so the template can read it
-// const games = carouselGames.map((game) => game.get({ plain: true }));
-
-// Pass serialized data and session flag into template
 res.render('homepage', {
-  // ...games,
+  ...carouselGames,
   logged_in: req.session.logged_in
 });
+    // res.status(200).json(carouselGames);
   } catch (err) {
-  res.status(500).json(err);
-}
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 // Render login/signup page  
@@ -54,12 +38,24 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-//Fisher Yates shuffle algorithm 
-function shuffleArray(arr){
-  for(i = arr.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random()*(i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+//Fisher Yates shuffle algorithm (via Stack Overflow)
+function shuffleArray(array){
+  let currentIndex = array.length, randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex > 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
   }
-}
+
+  return array;
+};
+
 
 module.exports = router;
