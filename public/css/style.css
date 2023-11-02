@@ -9,8 +9,8 @@ body {
     margin: auto;
   }
 
-  /* Login  */
- 
+ /* Login/Sign-Up */
+
   /* CSS for valid input */
 .form-control:valid {
     border-color: green;
