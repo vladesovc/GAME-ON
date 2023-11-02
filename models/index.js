@@ -8,7 +8,7 @@ Users.belongsToMany(Games, {
         model: Saved,
         unique: false,
     },
-    as: 'user_choices',
+    as: 'user_choices'
 });
 
 Games.belongsToMany(Users, {
@@ -16,7 +16,7 @@ Games.belongsToMany(Users, {
         model: Saved,
         unique: false,
     },
-    as: 'saved_games',
+    as: 'saved_games'
 });
 
 Users.belongsToMany(Games, {
@@ -24,7 +24,7 @@ Users.belongsToMany(Games, {
         model: Reviews,
         unique: false,
     },
-    as: 'user_reviews',
+    as: 'user_reviews'
 });
 
 Games.belongsToMany(Users, {
@@ -32,12 +32,14 @@ Games.belongsToMany(Users, {
         model: Reviews,
         unique: false,
     },
-    as: 'reviewed_games',
+    as: 'reviewed_games'
 });
+
+
 
 module.exports = {
     Games,
     Users,
     Saved,
-    Reviews,
+    Reviews
 };
