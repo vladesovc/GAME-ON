@@ -1,11 +1,12 @@
+/* Main handlebars */
 #carouselExampleInterval {
     width: 600px; 
     height: 600px; 
     margin: auto;
   }
 
-  /* For Account  */
- 
+ /* Login/Sign-Up */
+
   /* CSS for valid input */
 .form-control:valid {
     border-color: green;
@@ -16,6 +17,7 @@
     border-color: red;
 }
 
-  
+
+
 
 
