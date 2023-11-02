@@ -3,16 +3,24 @@ const { Games, Users, Reviews } = require('../models');
 const withAuth = require('../utils/auth.js');
 
 // // root/dashboard
-// router.get('/', withAuth, async (req, res) => {
-//     try {
-//         const userData = await Users.findByPk(req.session.user_id, {
-//             attributes: ['username',]
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await Users.findByPk(req.session.user_id, {
+            attributes: { excude: ['password', 'email'] },
+            include: [{ model: Games }, { model: Reviews }],
+        });
 
-//         })
-//     } catch {
+        const user = userData.get({ plain: true });
 
-//     }
-// });
+        res.render('dashboard', {
+            ...username,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+
+    }
+});
 
 
 // router.get('/profile', withAuth, async (req, res) => {
