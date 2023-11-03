@@ -1,0 +1,31 @@
+<div class="card" style="width: 18rem;">
+  <img src={{thumbnail}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{short_description}}</p>
+    <p>{{genre}} | {{platform}} | {{developer}}</p>
+  </div>
+
+<div>
+    <form action="/submit-review" method="post">
+        <!-- Hidden field to store the game ID -->
+        <input type="hidden" name="gameId" value="{{ game_id }}">
+
+        <label for="reviewTitle">Review Title:</label>
+        <input type="text" id="reviewTitle" name="reviewTitle" required>
+
+        <label for="reviewBody">Enter Review Here:</label>
+        <textarea id="reviewBody" name="reviewBody" required></textarea>
+
+        <label for="starRating">Star Rating:</label>
+        <select id="starRating" name="starRating" required>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
