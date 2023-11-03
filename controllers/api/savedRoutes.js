@@ -21,22 +21,22 @@ router.get('/saved', async (req, res) => {
 
 // create a new saved item
 router.post('/:id', async (req, res) => {
-  const gameId = req.params.game_id; 
+  const gameId = req.params.game_id;
   const userId = req.user_id;
 
   try {
-      // Create a new saved game object
-      const newSavedGame = {
-          user_id: userId, // Change user_id if needed
-          game_id: parseInt(gameId), // Use the provided game ID
-          favorite: false // Set the favorite status as needed
-      };
+    // Create a new saved game object
+    const newSavedGame = {
+      user_id: userId, // Change user_id if needed
+      game_id: parseInt(gameId), // Use the provided game ID
+      favorite: false
+    };
 
-      const savedGame = await Saved.create(newSavedGame);
+    const savedGame = await Saved.create(newSavedGame);
 
-      res.status(201).json(savedGame); // Respond with the created saved game
+    res.status(201).json(savedGame); // Respond with the created saved game
   } catch (err) {
-      res.status(500).json({ err: 'Failed to save the game.' });
+    res.status(500).json({ err: 'Failed to save the game.' });
   }
 });
 
@@ -53,7 +53,7 @@ router.delete('/:id', async (req, res) => {
       },
     });
     if (!deletedGame) {
-      return res.status(404).json({ message: 'Game not found in your Saved Collection. Please try again.'});
+      return res.status(404).json({ message: 'Game not found in your Saved Collection. Please try again.' });
     }
 
     res.status(200).json({ message: 'Success! Game removed from Saved Collection!' });
