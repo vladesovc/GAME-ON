@@ -26,6 +26,27 @@ res.render('homepage', {
   }
 });
 
+// Route to get one game - /:id
+router.get('/game/:id', async (req, res) => {
+  try {
+      const gamesData = await Games.findByPk(req.params.id);
+      if (!gamesData) {
+          res.status(404).json({ message: 'There is no game with this id.' });
+          return;
+      }
+
+      const game = gamesData.get({ plain: true });
+
+      res.render('reviews',
+      game,
+      )
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  };
+});
+
+
 // Render login/signup page  
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
