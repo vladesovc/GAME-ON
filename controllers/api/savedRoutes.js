@@ -4,7 +4,7 @@ const { Saved } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
 // gets all saved data
-router.get('/SavedData', async (req, res) => {
+router.get('/saved', async (req, res) => {
   try {
       const userId = req.user.id; // Assuming you have user ID after authentication
 

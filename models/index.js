@@ -8,7 +8,7 @@ Users.belongsToMany(Games, {
         model: Saved,
         unique: false,
     },
-    as: 'user_choices'
+    as: 'UserChoices'
 });
 
 Games.belongsToMany(Users, {

@@ -19,5 +19,32 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Search by title - root/api/games/titlesearch/:title
+router.get('/titlesearch/:title', async (req, res) => {
+    try {
+      const getByTitle = await Games.findAll({
+        where: {
+          title: req.params.title,
+        }
+      })
+      res.status(200).json(getByTitle);
+    //   res.render('title-search-results', {
+    //     getByTitle
+    //   })
+    } catch (err) {
+      res.status(500).json(err);
+  }
+  });
+  
+  // // Search by genre - root/api/games/genresearch
+  // router.get('/genresearch', async (req, res) => {
+  //   try {
+  
+  //     res.status(200).json();
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  // }
+  // });
+
 module.exports = router;
 
