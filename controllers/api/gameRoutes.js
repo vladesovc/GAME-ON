@@ -28,23 +28,30 @@ router.get('/titlesearch/:title', async (req, res) => {
         }
       })
       res.status(200).json(getByTitle);
-    //   res.render('title-search-results', {
-    //     getByTitle
-    //   })
+
     } catch (err) {
       res.status(500).json(err);
   }
   });
   
-  // // Search by genre - root/api/games/genresearch
-  // router.get('/genresearch', async (req, res) => {
-  //   try {
-  
-  //     res.status(200).json();
-  //   } catch (err) {
-  //     res.status(500).json(err);
-  // }
-  // });
+  // Search by genre - root/api/games/genresearch
+  router.get('/genresearch/:genre', async (req, res) => {
+    try {
+      const genreString = req.query.genre;
+      const genreArray = genreString.split(',');
+      // console.log(genreArray)
+      for (let i = 0; i < genreArray.length; i++) {
+        var getByGenre = await Games.findAll({
+          where: {
+            genre: genreArray[i]
+          },
+        })
+      };
+      res.status(200).json(getByGenre);
+    } catch (err) {
+      res.status(500).json(err);
+  }
+  });
 
 module.exports = router;
 

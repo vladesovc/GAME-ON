@@ -1,13 +1,9 @@
-<div>
-titlesearch
 <div class="card" style="width: 18rem;">
-  <img src={{thumbnail}} class="card-img-top" alt="...">
+  <img src={{game.thumbnail}} class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{title}} {{average_stars}}</h5>
-    <p class="card-text">{{short_description}}</p>
-    <p>{{genre}} | {{platform}} | {{developer}}</p>
-    <a href={{game_url}} class="btn btn-primary">Play the game!</a>
+    <h5 class="card-title">{{game.title}} {{game.average_stars}}</h5>
+    <p class="card-text">{{game.short_description}}</p>
+    <p>{{game.genre}} | {{game.platform}} | {{game.developer}}</p>
+    <a href={{game.game_url}} class="btn btn-primary">Play the game!</a>
   </div>
-</div>
-
 </div>
