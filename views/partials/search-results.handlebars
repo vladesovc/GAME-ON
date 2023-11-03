@@ -3,17 +3,20 @@
     <a href="/gamesearch/2">51-100</a>
     <a href="/gamesearch/3">101-153</a>
 </div>  
-<div>
-    {{#each chosenArray}}
+
+<div id="games-list">
+    {{#each chosenArray as |game|}}
 <div class="card text-black" style="width: 18rem;">
-  <img src={{thumbnail}} class="card-img-top" alt="...">
+  <img src={{game.thumbnail}} class="card-img-top" alt="..." id="save-img">
   <div class="card-body">
-    <h5 class="card-title">{{title}} {{average_stars}}</h5>
-    <p class="card-text">{{short_description}}</p>
-    <p>{{genre}} | {{platform}} | {{developer}}</p>
+    <h5 class="card-title"><span id="save-title">{{game.title}}</span> {{game.average_stars}}</h5>
+    <p class="card-text" id="save-description">{{game.short_description}}</p>
+    <p>{{game.genre}} | {{game.platform}} | {{game.developer}}</p>
     <a href={{game_url}} class="btn btn-primary">Play the game!</a>
+    <a href="#" class="btn btn-primary save-btn" data-gameid="{{game.id}}">Save</a>
   </div>
 </div>
     {{/each}} 
 </div>
 
+<script src="/js/saveGame.js"></script>
