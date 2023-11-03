@@ -49,7 +49,6 @@ const genreSearchFormHandler = async (event) => {
         });
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             const redirectUrl = `/gamesearch/genre?genre=${encodeURIComponent(JSON.stringify(data))}`;
             window.location.replace(redirectUrl);
         }

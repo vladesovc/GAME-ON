@@ -23,22 +23,13 @@ router.get('/:id', async (req, res) => {
         titleSearch: true,
         logged_in: req.session.logged_in
       });
-
     } else if (req.query.genre) {
-      const genreData = JSON.parse(req.query.genre);
-      console.log(genreData)
-      for (let i=0; i<genreData.length; i++) {
-        const searchedGenres = await Games.findAll({
-          where: {
-            genre: genreData[i]
-          }
-      });
-      const genres = searchedGenres.get({ plain: true });
+      const genreData = req.query.genre;
       res.render('gamesearch', {
-        genres,
-        genreSearch: false,
+        data: genreData,
+        genreSearch: true,
         logged_in: req.session.logged_in
-      })}
+      })
     } else {
 
 
