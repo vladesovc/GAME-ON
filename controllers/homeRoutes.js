@@ -1,28 +1,25 @@
 const router = require('express').Router();
-const { Games, Users, Saved, Reviews } = require('../models');
-// const sequelize = require('../config/connection.js');
-const { Sequelize, DataTypes, Op } = require('sequelize'); // Import Op for aggregation functions
+const { Games } = require('../models');
+const { Sequelize, DataTypes, Op } = require('sequelize');
 
 router.get('/', async (req, res) => {
   try {
     const allGames = await Games.findAll({
-      attributes: [
-        'thumbnail'
-        // [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
-      ],
+      attributes: ['thumbnail'],
     });
     const gameInfo = allGames.map((game) => game.get({ plain: true }));
 
     const shuffledGames = shuffleArray(gameInfo);
 
-    const carouselGames = shuffledGames.slice(0, 5);
+    const selectedGames = shuffledGames.slice(0, 6);
 
+    const carouselGames = selectedGames.map(obj => obj.thumbnail);
+    carouselGames.unshift('https://media.istockphoto.com/id/1320799591/vector/game-on-neon-game-controller-or-joystick-for-game-console-on-blue-background.jpg?s=2048x2048&w=is&k=20&c=oQVZJ94lIx_-awFWha4S-0J0ZnpZ7JEkzflMJlX79vA=');
 
 res.render('homepage', {
-  ...carouselGames,
+  carouselGames,
   logged_in: req.session.logged_in
 });
-    // res.status(200).json(carouselGames);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

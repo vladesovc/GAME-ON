@@ -35,8 +35,6 @@ Games.belongsToMany(Users, {
     as: 'reviewed_games'
 });
 
-
-
 module.exports = {
     Games,
     Users,

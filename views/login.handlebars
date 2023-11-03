@@ -5,7 +5,6 @@
 <!-- Form -->
 <div class="container">
     <div class="row">
-
         <!-- Sign-up Form -->
         <div class="col-md-6">
             <div class="border border-info p-4">
@@ -23,7 +22,8 @@
                     <div class="mb-3">
                         <label for="signupUsername" class="form-label">Username</label>
                         <input type="text" class="form-control is-invalid" id="signupUsername"
-                            placeholder="Required Username" required minlength="3" maxlength="10" pattern=".{3,10}">
+                            placeholder="Required Username" required minlength="3" maxlength="10" pattern=".{3,10}"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
                         <div class="invalid-feedback">
                             Please enter a Username in the textbox.
                         </div>
@@ -59,10 +59,8 @@
         </div>
 
         <!-- Login Form -->
-        <div id="returnUS">
+        <div id="returnUS" class="col-md-6">
             <h1>Returning User?</h1>
-        </div>
-        <div class="col-md-6">
             <div class="border border-primary p-4">
                 <h1>Login Form</h1>
                 <form id="loginForm" class="was-validated">
@@ -76,7 +74,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="loginPassword" class="form-label">Password</label>
+                        <label for "loginPassword" class="form-label">Password</label>
                         <input type="password" class="form-control is-invalid" id="loginPassword"
                             placeholder="Required password" required>
                         <div class="invalid-feedback">
@@ -97,6 +95,7 @@
         </div>
     </div>
 </div>
+
 
 
 

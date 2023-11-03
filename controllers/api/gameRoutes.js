@@ -1,47 +1,6 @@
 const router = require('express').Router();
 const { Games, Users, Reviews } = require('../../models');
 
-// root address
-router.get('/', async (req, res) => {
-    try {
-        // Get all Games and JOIN with user data
-        const gameData = await Games.findAll({
-            include: [{ model: Users },
-            {
-                model: Reviews,
-                attributes: [[sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],]
-            }]
-        });
-
-        const calculateAverage = async () => {
-            try {
-                const result = await Reviews.findAll({
-                    attributes: [
-                        [sequelize.fn('AVG', sequelize.col('stars')), 'averageValue'],
-                    ],
-                });
-
-                const averageValue = result[0].dataValues.averageValue;
-                console.log('Rating:', averageValue);
-                calculateAverage();
-
-            } catch (error) {
-                console.error('Error calculating average:', error);
-            }
-        }
-        // Serialize data so the template can read it
-        const games = gameData.map((game) => game.get({ plain: true }));
-
-        // Pass serialized data and session flag into template
-        res.render('Games', {
-            ...games,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 // root/api/games/:id
 router.get('/:id', async (req, res) => {
     try {
@@ -59,6 +18,33 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// Search by title - root/api/games/titlesearch/:title
+router.get('/titlesearch/:title', async (req, res) => {
+    try {
+      const getByTitle = await Games.findAll({
+        where: {
+          title: req.params.title,
+        }
+      })
+      res.status(200).json(getByTitle);
+    //   res.render('title-search-results', {
+    //     getByTitle
+    //   })
+    } catch (err) {
+      res.status(500).json(err);
+  }
+  });
+  
+  // // Search by genre - root/api/games/genresearch
+  // router.get('/genresearch', async (req, res) => {
+  //   try {
+  
+  //     res.status(200).json();
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  // }
+  // });
 
 module.exports = router;
 

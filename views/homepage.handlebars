@@ -1,51 +1,47 @@
 {{!-- Carousel --}}
 
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    {{#each carouselGames as |game|}}
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src={{game}} class="d-block w-100" alt="GAME-ON">
-    </div>
-    {{/each}}
-    {{!-- GAME ON logo  --}}
-    {{!-- <div class="carousel-item active" data-bs-interval="10000">
-      <img src="{{carouselImage1}}" class="d-block w-100" alt="GAME-ON">
-    </div>
-    {{!-- 5 featured games --}}
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage2}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage3}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage4}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage5}}" class="d-block w-100" alt="Play">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{carouselImage6}}" class="d-block w-100" alt="Play">
-    </div>
-  </div>
-<p>
-
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-
-    Click ME
-  </button>
-</p>
-<div style="min-height: 120px;">
-  <div class="collapse collapse-horizontal" id="collapseWidthExample">
-    <div class="card card-body" style="width: 300px;">
-      Welcome to GAME-ON website! Driven by passion, we are a global leader in digital interactive entertainment.
+<div id="container">
+<div class="container" id="textCAR">
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+         Welcome to GAME-ON website! Driven by passion, we are a global leader in digital interactive entertainment.
 
       Headquartered in Chicago in Illinois, we develop and deliver games, content, and online services for
       Internet-connected consoles,
       mobile devices, and personal computers. Through our cutting-edge games, innovative services, and powerful
       technologies, we bring worlds with
       infinite possibilities to everyone worldwide! To active players and fans around the globe!
-
+      </p>
+        GAME-ON is your one-stop destination for an immersive gaming experience. Our platform offers a wide array of games, catering to all types of gamers, 
+        from action enthusiasts to strategy masters. With a vast selection of games to choose from, you can explore new titles or revisit your all-time favorites.
+      </p>
     </div>
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {{#each carouselGames}}
+    <div class="carousel-item item{{#if @first}} active{{/if}}" data-bs-interval="5000">
+      <img src={{this}} class="d-block w-100" alt="GAME-ON">
+    </div>
+    {{/each}}
   </div>
-</div>
+<p>
+
+
+{{!-- <p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    About
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+   Welcome to GAME-ON website! Driven by passion, we are a global leader in digital interactive entertainment.
+
+      Headquartered in Chicago in Illinois, we develop and deliver games, content, and online services for
+      Internet-connected consoles,
+      mobile devices, and personal computers. Through our cutting-edge games, innovative services, and powerful
+      technologies, we bring worlds with
+      infinite possibilities to everyone worldwide! To active players and fans around the globe!
+  </div>
+</div> --}}
