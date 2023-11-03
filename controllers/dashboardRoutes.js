@@ -19,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
 
         res.render('dashboard', {
             ...user,
-            ...games,
+            games,
             logged_in: true
         });
     } catch (err) {
