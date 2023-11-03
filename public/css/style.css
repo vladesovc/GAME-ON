@@ -1,22 +1,46 @@
-#carouselExampleInterval {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background: #1a0327;
+    /* height: 350vh; */
+    color: white;
+}
+  
+  #container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #carouselExampleInterval {
     width: 600px; 
     height: 600px; 
-    margin: auto;
+    margin-left: auto;
+    padding-top: 70px;
   }
-
-  /* Login  */
- 
+  
+  #textCAR {
+    padding-top: 70px;
+    /* color: white; */
+  }
+  
+  
+  /* Login/Sign-Up */
+  
   /* CSS for valid input */
-.form-control:valid {
+  .form-control:valid {
     border-color: green;
-}
-
-/* CSS for invalid input */
-.form-control:invalid {
+  }
+  
+  /* CSS for invalid input */
+  .form-control:invalid {
     border-color: red;
-}
-
-#newUSup {
+  }
+  
+  #newUSup {
     text-align: left;
     padding-left: 155px;
     display: inline-block;
@@ -82,3 +106,4 @@
     flex-direction: column;
     align-items: center;
 }
+
