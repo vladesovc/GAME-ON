@@ -35,6 +35,7 @@ router.get('/:id', async (req, res) => {
         'genre',
         'platform',
         'developer',
+        'id',
         [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
       ],
     });

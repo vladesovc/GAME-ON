@@ -16,7 +16,7 @@ router.post('/new', async (req, res) => {
       text,
       stars
     });
-   console.log(newReview);
+  //  console.log(newReview);
    const reviewId = newReview.id;
     res.status(201).json({ review: newReview, id: reviewId});
   } catch (err) {
