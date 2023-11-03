@@ -1,1 +1,15 @@
 <div class="greeting">Hey {{username}}, welcome back!</div>
+<div>
+
+    {{#each game}}
+<div class="card" style="width: 18rem;">
+  <img src={{thumbnail}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}} {{average_stars}}</h5>
+    <p class="card-text">{{short_description}}</p>
+    <p>{{genre}} | {{platform}} | {{developer}}</p>
+    <a href={{game_url}} class="btn btn-primary">Play {{title}}!</a>
+  </div>
+</div>
+    {{/each}} 
+</div>
