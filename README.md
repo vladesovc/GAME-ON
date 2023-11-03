@@ -33,7 +33,11 @@ Cory
 Beth
 Fischer-Yates Shuffle Algorithm - via Stack Overflow
 
+## Outside Sources
 bootstrap v 5.1.3
+coolors.co
+
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
