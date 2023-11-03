@@ -1,0 +1,14 @@
+<div>
+    {{#each chosenArray}}
+<div class="card" style="width: 18rem;">
+  <img src={{thumbnail}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}} {{average_stars}}</h5>
+    <p class="card-text">{{short_description}}</p>
+    <p>{{genre}} | {{platform}} | {{developer}}</p>
+    <a href={{game_url}} class="btn btn-primary">Play the game!</a>
+  </div>
+</div>
+    {{/each}} 
+</div>
+

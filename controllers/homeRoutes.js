@@ -1,15 +1,11 @@
 const router = require('express').Router();
-const { Games, Users, Saved, Reviews } = require('../models');
-// const sequelize = require('../config/connection.js');
-const { Sequelize, DataTypes, Op } = require('sequelize'); // Import Op for aggregation functions
+const { Games } = require('../models');
+const { Sequelize, DataTypes, Op } = require('sequelize');
 
 router.get('/', async (req, res) => {
   try {
     const allGames = await Games.findAll({
-      attributes: [
-        'thumbnail'
-        // [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
-      ],
+      attributes: ['thumbnail'],
     });
     const gameInfo = allGames.map((game) => game.get({ plain: true }));
 
@@ -30,8 +26,44 @@ res.render('homepage', {
   }
 });
 
-router.get('/gamesearch', (req, res) => {
-  res.render('gamesearch')
+router.get('/gamesearch/:id', async (req, res) => {
+  try {
+      const gameData = await Games.findAll({
+          attributes: [
+              'title',
+              'short_description',
+              'thumbnail',
+              'game_url',
+              'genre',
+              'platform',
+              'developer',
+              [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
+          ],
+      });
+
+      const games = gameData.map((game) => game.get({ plain: true }));
+
+      const oneThruFifty = games.slice(0, 50);
+      const fiftyOneThruHundred = games.slice(50, 100);
+      const hundredOneThruEnd = games.slice(100, 153);
+      const arrayId = req.params.id;
+
+      let chosenArray;
+      if (arrayId == 1) {
+        chosenArray = oneThruFifty;
+      } else if (arrayId == 2){
+        chosenArray = fiftyOneThruHundred;
+      } else {
+        chosenArray = hundredOneThruEnd;
+      };
+      
+      res.render('gamesearch', {
+          chosenArray,
+          logged_in: req.session.logged_in
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
 });
 
 // Render login/signup page  

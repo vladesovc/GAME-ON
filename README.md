@@ -31,6 +31,7 @@ Elizabeth
 Taylor 
 Cory
 Beth
+Fischer-Yates Shuffle Algorithm - via Stack Overflow
 
 bootstrap v 5.1.3
 ## License
