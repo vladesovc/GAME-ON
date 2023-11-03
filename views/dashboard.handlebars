@@ -1,8 +1,8 @@
-<div class="greeting">Hey {{username}}, welcome back!</div>
-<div>
-
-    {{#each game}}
-<div class="card" style="width: 18rem;">
+<div class="greeting, ">Hey {{username}}, welcome back!</div>
+<div class="savedGames">
+{{username}}'s saved games:
+    {{#each games}}
+<div class="card text-black" style="width: 18rem;">
   <img src={{thumbnail}} class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{title}} {{average_stars}}</h5>
