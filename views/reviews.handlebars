@@ -1,12 +1,15 @@
-<h2>{{ }}</h2> <!-- insert the game title -->
-<p>{{ }}</p> <!-- insert the games description -->
-<!-- any other game details to be shown on the review page? -->
+<div class="card" style="width: 18rem;">
+  <img src={{thumbnail}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{short_description}}</p>
+    <p>{{genre}} | {{platform}} | {{developer}}</p>
+  </div>
 
-<div class="">
-
+<div>
     <form action="/submit-review" method="post">
         <!-- Hidden field to store the game ID -->
-        <input type="hidden" name="gameId" value="{{ game.id }}">
+        <input type="hidden" name="gameId" value="{{ game_id }}">
 
         <label for="reviewTitle">Review Title:</label>
         <input type="text" id="reviewTitle" name="reviewTitle" required>
@@ -25,5 +28,4 @@
 
         <button type="submit">Submit Review</button>
     </form>
-
 </div>

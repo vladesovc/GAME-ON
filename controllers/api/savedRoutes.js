@@ -4,18 +4,18 @@ const { Saved } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
 // gets all saved data
-router.get('/saved', async (req, res) => {
+router.get('/SavedData', async (req, res) => {
   try {
-    const savedItems = await Saved.findAll();
+      const userId = req.user.id; // Assuming you have user ID after authentication
 
-    const savedData = savedItems.map((saved) => saved.get({ plain: true }));
-
-    res.render('Saved', {
-      savedItems: savedData,
-      logged_in: req.session.logged_in
+      // Find saved games for the current user
+      const savedGames = await Saved.findAll({ 
+      where: { user_id: userId } 
     });
-  } catch (err) {
-    res.status(500).json({ err: err.message });
+
+      res.status(200).json(savedGames); // Respond with the list of saved games
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch saved games.' });
   }
 });
 
