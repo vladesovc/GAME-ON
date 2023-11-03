@@ -38,7 +38,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!deletedReview) {
-      return res.status(404).json({ message: 'Cannot find the Review. Please Try Again.' });
+      return res.status(404).json({ message: 'Review not found. Please try again.' });
     }
 
     res.status(200).json({ message: 'Success! Review deleted!' });

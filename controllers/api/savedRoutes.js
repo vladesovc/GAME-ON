@@ -20,33 +20,45 @@ router.get('/saved', async (req, res) => {
 });
 
 // create a new saved item
-router.post('/newsaved', withAuth, async (req, res) => {
+router.post('/:id', async (req, res) => {
+  const gameId = req.params.game_id;
+  const userId = req.user_id;
+
   try {
-    const newSavedGame = await Saved.create(req.body);
-    // Redirect to the route that displays the saved games, passing the newly saved game's ID in the URL
-    res.redirect(`/saved/${newSavedGame.id}`);
+    // Create a new saved game object
+    const newSavedGame = {
+      user_id: userId, // Change user_id if needed
+      game_id: parseInt(gameId), // Use the provided game ID
+      favorite: false
+    };
+
+    const savedGame = await Saved.create(newSavedGame);
+
+    res.status(201).json(savedGame); // Respond with the created saved game
   } catch (err) {
-    res.status(400).json({ err: 'Could not find Game by ID. Please ensure info is correct.' });
+    res.status(500).json({ err: 'Failed to save the game.' });
   }
 });
 
-// delete saved item
-router.delete('/saved/:id', async (req, res) => {
-  const { id } = req.params;
+
+// delete saved game
+router.delete('/:id', async (req, res) => {
   try {
-    const deleted = await Saved.destroy({
+    const gameId = req.params.id;
+
+    const deletedGame = await Saved.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        id: gameId,
+        game_id_id: req.session.game_id,
       },
     });
-    if (deleted) {
-      res.json({ message: 'Game removed from Favorites' });
-    } else {
-      res.status(404).json({ message: 'Game not found in Favorites' });
+    if (!deletedGame) {
+      return res.status(404).json({ message: 'Game not found in your Saved Collection. Please try again.' });
     }
+
+    res.status(200).json({ message: 'Success! Game removed from Saved Collection!' });
   } catch (err) {
-    res.status(500).json({ message: 'Error removing Game from favorites within server.' });
+    res.status(500).json({ err: 'Failed to remove the Game from Saved Collection. Please try again.' });
   }
 });
 
