@@ -27,7 +27,7 @@ Saved.init(
     favorite: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-    },
+    }
   },
   {
     sequelize,

@@ -32,19 +32,19 @@ router.get('/:id', async (req, res) => {
       })
     } else {
 
-
-      const gameData = await Games.findAll({
-        attributes: [
-          'title',
-          'short_description',
-          'thumbnail',
-          'game_url',
-          'genre',
-          'platform',
-          'developer',
-          [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
-        ],
-      });
+    const gameData = await Games.findAll({
+      attributes: [
+        'title',
+        'short_description',
+        'thumbnail',
+        'game_url',
+        'genre',
+        'platform',
+        'developer',
+        'id',
+        [Sequelize.literal('(SELECT AVG(stars) FROM Reviews WHERE Reviews.game_id = Games.id)'), 'average_stars'],
+      ],
+    });
 
       const games = gameData.map((game) => game.get({ plain: true }));
 
