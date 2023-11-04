@@ -3,7 +3,7 @@ const router = express.Router();
 const { Saved } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 //create a saved game
-router.post("save", async (req, res) => {
+router.post("save", withAuth, async (req, res) => {
   try{
     const newSaved = await Saved.create({
       ...req.body,
@@ -15,7 +15,7 @@ router.post("save", async (req, res) => {
   }
 })
 // gets all saved data
-router.get('/new', async (req, res) => {
+router.get('/new', withAuth, async (req, res) => {
   try {
       const userId = req.user.id; 
 
@@ -31,7 +31,7 @@ router.get('/new', async (req, res) => {
 });
 
 // create a new saved item
-router.post('/:id', async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
   try {
     const gameId = req.params.id;
     const userId = req.session.user_id;
@@ -54,7 +54,7 @@ console.log(newSavedGame);
 });
 
 // delete saved game
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const saveId = req.params.id;
     const userId = req.session.user_id; 

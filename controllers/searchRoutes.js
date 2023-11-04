@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Games, Reviews } = require('../models');
+const { Games } = require('../models');
 const { Sequelize } = require('sequelize');
 
 // Main render for gamesearch page - get all games in 3 batches based on params id - root/gamesearch/:id
@@ -73,15 +73,5 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// router.get('/title', async (req, res) => {
-
-//   // Retrieve the data from the query parameters
-//   const searchResults = JSON.parse(decodeURIComponent(req.query.data));
-
-//   // Render the appropriate Handlebars template with the data
-//   res.render('title-search-results', { searchResults });
-// });
-
 
 module.exports = router;
