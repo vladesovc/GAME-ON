@@ -60,7 +60,7 @@ const genreSearchFormHandler = async (event) => {
 
 const getReviewForm = (event) => {
     event.preventDefault();
-    const gameId = event.target.value;
+    const gameId = event.target.name;
 
     window.location.replace(`/game/${gameId}`);
 }

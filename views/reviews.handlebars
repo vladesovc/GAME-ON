@@ -10,14 +10,14 @@
         </div>
     </div>
 
-    <form action="/submit-review" method="post">
+    <form action="" method="post" id="reviewForm">
         <!-- Hidden field to store the game ID -->
-        <input type="hidden" name="gameId" value="{{ game_id }}">
-
-        <div class="review-input-group">
+        <input type="hidden" id="gameIdHolder" name="gameId" value="{{ game_id }}">
+{{!-- Not sure we need a title for our review... --}}
+        {{!-- <div class="review-input-group">
             <label for="reviewTitle">Review Title</label>
             <input type="text" id="reviewTitle" name="reviewTitle">
-        </div>
+        </div> --}}
 
         <div class="review-input-group">
             <label for="reviewBody">Review Body</label>
@@ -27,13 +27,15 @@
         <div class="review-input-group">
             <label for="starRating">Star Rating:</label>
             <select id="starRating" name="starRating" required>
+
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
         </div>
-        <option value="1">1 Star</option>
-        <option value="2">2 Stars</option>
-        <option value="3">3 Stars</option>
-        <option value="4">4 Stars</option>
-        <option value="5">5 Stars</option>
-        </select>
+
 
         <div>
             <button class="review-button" type="submit">Submit Review</button>
@@ -42,3 +44,5 @@
 
 </div>
 </body>
+
+<script src="/js/addReview.js"></script>

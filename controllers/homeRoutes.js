@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Games } = require('../models');
 const { Sequelize, DataTypes, Op } = require('sequelize');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -26,8 +27,8 @@ res.render('homepage', {
   }
 });
 
-// Route to get one game - /:id
-router.get('/game/:id', async (req, res) => {
+// Route to review a game - /:id
+router.get('/game/:id', withAuth, async (req, res) => {
   try {
       const gamesData = await Games.findByPk(req.params.id);
       if (!gamesData) {
@@ -37,8 +38,11 @@ router.get('/game/:id', async (req, res) => {
 
       const game = gamesData.get({ plain: true });
 
-      res.render('reviews',
-      game,
+      res.render('reviews', {
+        ...game,
+        logged_in: req.session.logged_in,
+      }
+
       )
   } catch (err) {
       console.log(err);
