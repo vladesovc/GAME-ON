@@ -9,7 +9,6 @@ router.post('/new', withAuth, async (req, res) => {
     const user_id = req.session.user_id;
     
     const { game_id, text, stars } = req.body;
-    console.log(req.body)
     // console.log(user_id, game_id, text, stars);
     
     
@@ -20,7 +19,6 @@ router.post('/new', withAuth, async (req, res) => {
       text: text,
       stars: stars
     });
-   console.log(newReview);
    const reviewId = newReview.id;
     res.status(201).json({ review: newReview, id: reviewId});
   } catch (err) {

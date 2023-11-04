@@ -1,11 +1,11 @@
 <div>
-  genre search
+Genre Search:
   {{data}}
-    {{#each data}}
+    {{#each data as |data|}}
 <div class="card text-black" style="width: 18rem;">
   <img src={{thumbnail}} class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
+    <h5 class="card-title">"{{data.title}}"</h5>
     <p class="card-text">{{short_description}}</p>
     <p>{{genre}} | {{platform}} | {{developer}}</p>
     <a href={{game_url}} class="btn btn-primary">Play the game!</a>
