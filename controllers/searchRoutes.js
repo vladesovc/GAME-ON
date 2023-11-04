@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Games } = require('../models');
+const { Games, Reviews } = require('../models');
 const { Sequelize } = require('sequelize');
 
 // Main render for gamesearch page - get all games in 3 batches based on params id - root/gamesearch/:id
@@ -15,7 +15,8 @@ router.get('/:id', async (req, res) => {
       const searchedGame = await Games.findOne({
         where: {
           title: gameTitle
-        }
+        },
+        // include: {model: Reviews}
       });
       const game = searchedGame.get({ plain: true });
       res.render('gamesearch', {

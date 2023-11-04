@@ -6,6 +6,8 @@
 
 <div id="games-list">
     {{#each chosenArray as |game|}}
+    {{id}}
+    {{game.id}}
 <div class="card text-black" style="width: 18rem;">
   <img src={{game.thumbnail}} class="card-img-top" alt="..." id="save-img">
   <div class="card-body">
@@ -15,10 +17,11 @@
     <a href={{game_url}} class="btn btn-primary">Play the game!</a>
     <a href="#" id="saveBtn" class="btn btn-primary save-btn" data-gameid="{{game.id}}">Save</a>
     {{!-- Delete later if not functional! --}}
-    <a href="#" id="addReviewBtn" class="btn btn-primary review-btn" value="{{game.id}}">Add a review</a>
+    <button id="addReviewBtn" class="btn btn-primary review-btn" value={{id}}>Add a review</button>
   </div>
 </div>
     {{/each}} 
 </div>
 
 <script src="/js/saveGame.js"></script>
+<script src="/js/titleGenreSearch.js"></script>
