@@ -10,10 +10,13 @@
     <p class="card-text">{{game.short_description}}</p>
     <p>{{game.genre}} | {{game.platform}} | {{game.developer}}</p>
     <a href={{game_url}} class="btn btn-primary">Play {{title}}!</a>
-     <a class="btn btn-primary del-game" data-savedid = "{{game.saved.id}}">Delete</a>
+    <button id="addReviewBtn" class="btn btn-primary review-btn" value={{id}}>Add a review</button>
+     <a class="btn btn-primary del-game" data-savedid = "{{game.saved.id}}">Remove</a>
   </div>
 </div>
     {{/each}} 
 </div>
 
 <script src="/js/deleteGame.js"></script>
+<script src="/js/titleGenreSearch.js"></script>
+    
