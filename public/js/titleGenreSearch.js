@@ -1,7 +1,7 @@
-const checkboxes = document.querySelectorAll('.form-check-input');
+const genreChoices = document.querySelectorAll('.form-check-input');
 const selectedGenres = [];
 
-checkboxes.forEach(checkbox => {
+genreChoices.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
             selectedGenres.push(checkbox.value);
@@ -60,7 +60,7 @@ const genreSearchFormHandler = async (event) => {
 
 const getReviewForm = (event) => {
     event.preventDefault();
-    const gameId = event.target.name;
+    const gameId = event.target.value;
 
     window.location.replace(`/game/${gameId}`);
 }
