@@ -21,6 +21,7 @@
     "gatsby-plugin-emoji-cursor": "^1.0.2",
     "image-js": "^0.35.5",
     "mysql2": "^2.2.5",
+    "ripple-effects": "^1.0.2",
     "sequelize": "^6.3.5"
   }
 }
