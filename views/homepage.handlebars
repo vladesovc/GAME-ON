@@ -4,8 +4,10 @@
     <div class="carousel-inner">
 
       {{#each carouselGames}}
-      <div class="carousel-item{{#if @first}} active{{/if}}" data-bs-interval="2000">
-        <img src="{{this}}" class="d-block w-100" alt="GAME-ON">
+      <div class="carousel-item{{#if @first}} active{{/if}}" data-bs-interval="1000">
+        <div class="image-container">
+          <img src="{{this}}" class="d-block w-100 carousel-image" alt="GAME-ON">
+        </div>
       </div>
       {{/each}}
     </div>
@@ -20,6 +22,7 @@
   </div>
 </div>
 </div>
+
 
 <div class="container" id="textCAR">
   <div class="row">
@@ -92,6 +95,7 @@
           GitHub</a></li>
       <li><a href="https://github.com/taycannon"><i class="fab fa-twitter"></i>Taylor's GitHub</a>
       </li>
+
       <li><a href="https://github.com/lizfischstix"><i class="fab fa-linkedin"></i>Liz's
           GitHub</a></li>
     </ul>
