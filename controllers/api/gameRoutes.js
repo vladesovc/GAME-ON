@@ -1,19 +1,17 @@
 const router = require('express').Router();
-const { Games, Users, Reviews } = require('../../models');
+const { Games } = require('../../models');
 
 // root/api/games/:id
 router.get('/:id', async (req, res) => {
     try {
-        const gameData = await Games.findByPk(req.params.id, {
-            include: [{ model: Users }, { model: Reviews }],
-        });
+        const gameData = await Games.findByPk(req.params.id);
 
         const game = gameData.get({ plain: true });
-
-        res.render('games', {
-            ...game,
-            logged_in: req.session.logged_in
-        });
+        res.status(200).json(game);
+        // res.render('games', {
+        //     ...game,
+        //     logged_in: req.session.logged_in
+        // });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -28,23 +26,30 @@ router.get('/titlesearch/:title', async (req, res) => {
         }
       })
       res.status(200).json(getByTitle);
-    //   res.render('title-search-results', {
-    //     getByTitle
-    //   })
+
     } catch (err) {
       res.status(500).json(err);
   }
   });
   
-  // // Search by genre - root/api/games/genresearch
-  // router.get('/genresearch', async (req, res) => {
-  //   try {
-  
-  //     res.status(200).json();
-  //   } catch (err) {
-  //     res.status(500).json(err);
-  // }
-  // });
+  // Search by genre - root/api/games/genresearch
+  router.get('/genresearch/:genre', async (req, res) => {
+    try {
+      const genreString = req.query.genre;
+      const genreArray = genreString.split(',');
+      // console.log(genreArray)
+      for (let i = 0; i < genreArray.length; i++) {
+        var getByGenre = await Games.findAll({
+          where: {
+            genre: genreArray[i]
+          },
+        })
+      };
+      res.status(200).json(getByGenre);
+    } catch (err) {
+      res.status(500).json(err);
+  }
+  });
 
 module.exports = router;
 

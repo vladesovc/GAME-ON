@@ -4,19 +4,21 @@ const { Reviews } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
 // POST route to create a new review, using Auth to check if the user is logged in
-router.post('/new', async (req, res) => {
+router.post('/new', withAuth, async (req, res) => {
   try {
-    const { user_id, game_id, text, stars } = req.body;
-    console.log(user_id, game_id, text, stars);
+    const user_id = req.session.user_id;
+    
+    const { game_id, text, stars } = req.body;
+    // console.log(user_id, game_id, text, stars);
+    
     
     // Create a new review
     const newReview = await Reviews.create({
-      user_id,
-      game_id,
-      text,
-      stars
+      user_id: user_id,
+      game_id: game_id,
+      text: text,
+      stars: stars
     });
-   console.log(newReview);
    const reviewId = newReview.id;
     res.status(201).json({ review: newReview, id: reviewId});
   } catch (err) {
