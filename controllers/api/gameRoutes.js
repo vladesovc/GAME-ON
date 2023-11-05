@@ -52,4 +52,3 @@ router.get('/titlesearch/:title', async (req, res) => {
   });
 
 module.exports = router;
-
