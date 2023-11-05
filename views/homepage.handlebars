@@ -1,7 +1,29 @@
 <!-- Carousel Section -->
-<!-- Carousel Section -->
 
 <div id="container">
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      {{#each carouselGames}}
+      <div class="carousel-item{{#if @first}} active{{/if}}" data-bs-interval="1000">
+        <div class="image-container">
+          <img src="{{this}}" class="d-block w-100 carousel-image" alt="GAME-ON">
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" ariahidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" ariahidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+</div>
+
+
 <div class="container" id="textCAR">
   <div class="row">
     <div class="col-md-6">
