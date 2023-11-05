@@ -97,6 +97,10 @@ ul.navbar li a.active{
     color: #FEC53A;
 }
 
+.mario{
+    font-family: 'Mario';
+}
+
 #btn{
     width: 350px;
     height: 10vh;
