@@ -11,6 +11,7 @@
         <div class="d-grid">
           <a href={{game_url}} class="btn btn-primary m-1">Play {{title}}!</a>
           <button onclick="getReviewForm(event)" id="addReviewBtn" class="btn btn-primary review-btn m-1" value={{id}}>Add a review</button>
+
           <a class="btn btn-primary del-game m-1" data-savedid="{{game.saved.id}}">Remove</a>
         </div>
       </div>
@@ -21,3 +22,4 @@
 
 <script src="/js/deleteGame.js"></script>
 <script src="/js/getReviewForm.js"></script>
+
