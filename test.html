@@ -292,3 +292,94 @@
   </div>
 </div>
 </div> --}}
+
+
+<h1 class="text-center">Welcome to the all-powerful GAME SEARCH!</h1>
+<div>
+    <form id="titleSearchForm">
+        <label for="titleSearch" class="form-label">Search by game title</label>
+        <input type="text" id="titleSearchInput" class="form-control">
+        <button id="titleSearchBtn" class="btn btn-primary" type="submit">Search by Title</button>
+    </form>
+    <form id="genreSearchForm">
+    <div class="form-check">
+        <h4>Search by genre</h4>
+        <input class="form-check-input" type="checkbox" value="ARPG" id="arpg">
+        <label class="form-check-label" for="flexCheckDefault">
+            ARPG
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Battle Royale" id="battle-royale">
+        <label class="form-check-label" for="flexCheckDefault">
+            Battle Royale
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Card Game" id="card-game">
+        <label class="form-check-label" for="flexCheckDefault">
+            Card Game
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Fighting" id="fighting">
+        <label class="form-check-label" for="flexCheckDefault">
+            Fighting
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="MMOARPG" id="mmoarpg">
+        <label class="form-check-label" for="flexCheckDefault">
+            MMOARPG
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="MOBA" id="moba">
+        <label class="form-check-label" for="flexCheckDefault">
+            MOBA
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="MMO" id="mmo">
+        <label class="form-check-label" for="flexCheckDefault">
+            MMO
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Racing" id="racing">
+        <label class="form-check-label" for="flexCheckDefault">
+            Racing
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Shooter" id="shooter">
+        <label class="form-check-label" for="flexCheckDefault">
+            Shooter
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Sports" id="sports">
+        <label class="form-check-label" for="flexCheckDefault">
+            Sports
+        </label>
+        <br>
+        <input class="form-check-input" type="checkbox" value="Strategy" id="strategy">
+        <label class="form-check-label" for="flexCheckDefault">
+            Strategy
+        </label>
+        <button id="titleSearchBtn" class="btn btn-primary" type="submit">Search by Genre</button>
+
+    </div>
+    </form>
+
+</div>
+
+<div>
+    <h4>Search results:</h4>
+    <div>
+        {{#if allGamesSearch}}
+        {{> search-results}}
+        {{/if}}
+        {{#if titleSearch}}
+        {{> title-search-results}}
+        {{/if}}
+        {{#if genreSearch}}
+        {{> genre-search-results}}
+        {{/if}}
+    </div>
+
+
+</div>
+
+<script src="/js/titleGenreSearch.js"></script>
