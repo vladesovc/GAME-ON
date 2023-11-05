@@ -89,10 +89,6 @@ ul.navbar li a.active {
     margin-bottom: 10px;
 }
 
-.content-desc span {
-    color: #FEC53A;
-}
-
 #btn,
 #btn2 {
     width: 350px;
@@ -158,6 +154,7 @@ ul.navbar li a.active {
     background-attachment: fixed;
 
 } */
+
 
 .section-1-wrapper {
     width: 70%;
