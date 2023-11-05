@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,17 +22,19 @@
 
 <body>
   {{!-- Navbar --}}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div {{!-- class="collapse navbar-collapse" --}} id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active animate__animated animate__pulse" href="/gamesearch/1">Search for games</a>
-          </li>
-          {{#if logged_in}}
+   <div class="container">
+        <header>
+            <div class="logo">
+                <p>GAME-ON</p>
+            </div>
+            <ul class="navbar">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/gamesearch/1">Search</a>
+                </li>
+              {{#if logged_in}}
           <li class="nav-item">
             <a class="nav-link active" href="/dashboard">Dashboard</a>
           </li>
@@ -43,32 +46,20 @@
             <a class="nav-link active" href="/login">Log in</a>
           </li>
           {{/if}}
-<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Info
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-           <li><a class="dropdown-item" href="#" data-toggle="collapse" data-target="#aboutCard">About Us</a></li>
-            <li><a class="dropdown-item" href="#">Help</a></li>
-          </ul>
-        </li>
-        </ul>
-      </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Info
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">About Us</a></li>
+                        <li><a class="dropdown-item" href="#">Help</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
     </div>
-  </nav>
-
-  <div id="aboutCard" class="collapse">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">About Us</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur mi. Nulla facilisi.
-          In vel tincidunt arcu. Quisque non lorem in urna scelerisque dapibus. Suspendisse potenti.
-          Fusce euismod dui in augue scelerisque, in semper metus euismod. Suspendisse euismod libero sit amet ligula hendrerit, ac bibendum justo eleifend.
-        </p>
-      </div>
     </div>
-  </div>
 
 {{!-- <img src="/public/Assets/GAME2.jpeg" alt="Description of the image"> --}}
 
