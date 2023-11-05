@@ -18,8 +18,10 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
+    "gatsby-plugin-emoji-cursor": "^1.0.2",
     "image-js": "^0.35.5",
     "mysql2": "^2.2.5",
+    "ripple-effects": "^1.0.2",
     "sequelize": "^6.3.5"
   }
 }
