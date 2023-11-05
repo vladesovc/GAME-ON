@@ -16,7 +16,7 @@ Games.belongsToMany(Users, {
         model: Saved,
         unique: false,
     },
-    as: 'saved_games'
+    as: 'savedGames'
 });
 
 Users.belongsToMany(Games, {
@@ -24,7 +24,7 @@ Users.belongsToMany(Games, {
         model: Reviews,
         unique: false,
     },
-    as: 'user_reviews'
+    as: 'userReviews'
 });
 
 Games.belongsToMany(Users, {
@@ -32,7 +32,7 @@ Games.belongsToMany(Users, {
         model: Reviews,
         unique: false,
     },
-    as: 'reviewed_games'
+    as: 'reviewedGames'
 });
 
 module.exports = {

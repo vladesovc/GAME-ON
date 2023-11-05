@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Games } = require('../models');
-const { Sequelize, DataTypes, Op } = require('sequelize');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -24,6 +24,27 @@ res.render('homepage', {
     console.log(err);
     res.status(500).json(err);
   }
+});
+
+// Route to review a game - /:id
+router.get('/game/:id', withAuth, async (req, res) => {
+  try {
+      const gamesData = await Games.findByPk(req.params.id);
+      if (!gamesData) {
+          res.status(404).json({ message: 'There is no game with this id.' });
+          return;
+      }
+
+      const game = gamesData.get({ plain: true });
+
+      res.render('reviews', {
+        ...game,
+        logged_in: req.session.logged_in,
+      })
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  };
 });
 
 // Render login/signup page  
@@ -53,6 +74,5 @@ function shuffleArray(array){
 
   return array;
 };
-
 
 module.exports = router;
