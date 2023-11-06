@@ -9,11 +9,7 @@ body{
 }
 
 /* Small screens */
-@media (max-width: 768px) {
-  }
-  
-@media (max-width: 992px) {
-  }
+
 
 /* Background of navbar */
 header {
@@ -129,7 +125,7 @@ ul.navbar li a.active {
     font-weight: 400;
 }
 
-.section-3-wrapper {
+/* .section-3-wrapper {
     display: flex;
     min-height: 70vh;
     align-items: center;
@@ -139,16 +135,12 @@ ul.navbar li a.active {
 .reviews-container {
     column-count: 2;
     column-gap: 20px; 
-  }
+  } */
 
 .feedback-desc {
-    /* width: 300px;
-    height: 300px; */
-    background: rgba(0, 0, 0, 0.767); /* Review background maybe might change? */
-    /* padding: 10px;
-    color: #fff;
-    margin-right: 10px;
-    break-inside: avoid; */
+    background: rgba(0, 0, 0, 0.767); 
+    /* Review background maybe might change? */
+    padding: 20px;
 }
 
 /* FOoter section */
@@ -158,8 +150,13 @@ footer{
     background: #282828;
     display: flex;
     align-items: center;
-    
+    padding: 10px;
 }
+
+.footer {
+    margin-top: 20px; /* Add margin to the top of the footer to separate it from the reviews */
+  }
+
 .footer-body{
     width: 90%;
     margin: auto;
@@ -184,20 +181,6 @@ ul li a{
 }
 ul li a:hover{
     color: #FEC53A;
-}
-.footer-bottom{
-    width: 100%;
-    height: 7;
-    background: #1B1919;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875;
-}
-.footer-bottom span{
-    color: #FEC53A;
-    font-weight: bold;
 }
 
 /* Reviews */
@@ -246,6 +229,7 @@ ul li a:hover{
     flex-direction: column;
     align-items: center;
 }
+/* Fonts for webpage */
 @font-face {
     font-family: 'mario'; /* Choose a name for your font */
     src: url('../fonts/Mario-Party-Hudson-Font.ttf') format('truetype'); /* Specify the path to your TTF file */
@@ -255,5 +239,3 @@ ul li a:hover{
     color: white;
     font-size: 3rem;
   }
-  
-
