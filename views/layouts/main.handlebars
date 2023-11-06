@@ -13,51 +13,41 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/css/new.css">
-
 </head>
 
 <body>
   {{!-- Navbar --}}
-  <div class="container">
+  <div class="container-fluid">
     <header>
       <a href="/" class="text-decoration-none">
         <div class="logo">
-          <p class="mario">GAME-ON</p>
+          <p class="mario">GAME ON!</p>
         </div>
       </a>
+      <div class="d-flex">
+        <ul class="navbar row">
+          <li class="nav-item col">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active animate__animated animate__pulse" href="/gamesearch/1">Search</a>
+          </li>
+          {{#if logged_in}}
+          <li class="nav-item col">
+            <a class="nav-link active" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item col">
+            <a id="logout" class="nav-link active" href="#">Log out</a>
+          </li>
+          {{else}}
+          <li class="nav-item col">
+            <a class="nav-link active" href="/login">Log in</a>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
 
-      <ul class="navbar">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active animate__animated animate__pulse" href="/gamesearch/1">Search</a>
-        </li>
-        {{#if logged_in}}
-        <li class="nav-item">
-          <a class="nav-link active" href="/dashboard">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a id="logout" class="nav-link active" href="#">Log out</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link active" href="/login">Log in</a>
-        </li>
-        {{/if}}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Info
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">About Us</a></li>
-            <li><a class="dropdown-item" href="#">Help</a></li>
-          </ul>
-        </li>
-      </ul>
     </header>
-  </div>
   </div>
 
   {{!-- <img src="/public/Assets/GAME2.jpeg" alt="Description of the image"> --}}
