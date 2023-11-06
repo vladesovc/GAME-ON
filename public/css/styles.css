@@ -188,7 +188,7 @@ ul li a:hover{
     display: flex;
     flex: 1; /* Takes up available space */
     padding: 20px;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 .review-input-group {
     display: flex;
@@ -201,13 +201,13 @@ ul li a:hover{
     margin-top: 5px;
     margin-bottom: 10px;
 }
-.review-button {
+/* .review-button {
     padding: 10px;
     background-color: #337ab7;
     color: white;
     border: none;
     cursor: pointer;
-}
+} */
 #review-game-card {
     border: 1px solid #ccc;
     border-radius: 5px;

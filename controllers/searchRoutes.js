@@ -25,10 +25,10 @@ router.get('/:id', async (req, res) => {
         logged_in: req.session.logged_in
       });
     } else if (req.query.genre) {
-      const genreData = JSON.parse(req.query.genre);
-      // const genreData = req.query.genre;
+      // const genreData = JSON.parse(req.query.genre);
+      const genreData = req.query.genre;
       res.render('gamesearch', {
-        data: genreData,
+        genreData,
         genreSearch: true,
         logged_in: req.session.logged_in
       })

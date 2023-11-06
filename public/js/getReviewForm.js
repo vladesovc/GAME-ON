@@ -5,5 +5,3 @@ const getReviewForm = (event) => {
 
     window.location.replace(`/game/${gameId}`);
 }
-
-// document.getElementById('addReviewBtn').addEventListener('click', getReviewForm);
