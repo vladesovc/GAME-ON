@@ -4,7 +4,7 @@
     <div class="carousel-inner">
 
       {{#each carouselGames}}
-      <div class="carousel-item{{#if @first}} active{{/if}}" data-bs-interval="1000">
+      <div class="carousel-item{{#if @first}} active{{/if}}" data-bs-interval="19500">
         <div class="image-container">
           <img src="{{this}}" class="d-block w-100 carousel-image" alt="GAME-ON">
         </div>
@@ -34,7 +34,8 @@
       </p>
     </div>
   </div>
-  <button type="button" id="btn"><i class="fas fa-play"></i><h2>PLAY NOW</h2></button>
+  <a href="/gamesearch/1"><button type="button" id="btn" class="mario text-black"><i class="fas fa-play"></i><h2>PLAY NOW</h2></button></a>
+  
 
   <!-- Reviews -->
   <div class="section-2">
@@ -75,9 +76,9 @@
 <!-- FOOTER SECTION -->
 <footer>
   <div class="footer-body">
-    <div class="logo footer-logo">
+    <div class="logo footer-logo mario">
       <i class="fas fa-gamepad"></i>
-      <h1>GAME-ON</h1>
+      <h1>GAME ON!</h1>
     </div>
     <ul>
       <h3>Get In Touch</h3>
