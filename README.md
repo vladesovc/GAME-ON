@@ -3,6 +3,7 @@
 ## Table of Contents
   - [Description](#description)
   - [Usage](#usage)
+  - [Screenshots](#screenshots)
   - [Technologies Used](#technologies-used)
   - [Credits](#credits)
   - [License](#license)
@@ -13,11 +14,20 @@
 <a name="description"></a>
 This web application serves as a portal to free online games. Users can see all games in our database, search for games by title or genre, and follow the links to those games, all without any login. If a user creates an account, they can then save games to their dashboard and write reviews of games.
 
+Checkout a video run-through → [HERE](https://drive.google.com/file/d/1gEa1uXdrMRs70Ycf-nFkNJh49PKCPl7a/view)!
+
 ## Usage
 <a name="usage"></a>
 To access the live site, visit this URL: https://grisly-coffin-11200-fb183baf5ee2.herokuapp.com
 
 To use, follow navigation links at the top of the screen to visit various parts of the site. To save games or leave reviews, create an account or sign into an existing account.
+
+## Screenshots
+![homepage pt1](image-2.png)
+![homepage pt2](image-3.png)
+![homepage pt3](image-4.png)
+![game search](image-5.png)
+
 
 ## Technologies Used
 <a name="technologies-used"></a>
@@ -28,15 +38,16 @@ Our game data came from the FreeToGame.com API, and was then cleaned and saved d
 ## Credits
 <a name="credits"></a>
 Collaborators:
-Corey Vladesov - https://github.com/vladesovc
-Liz Fischenich - https://github.com/lizfischstix
-Taylor Cannon - https://github.com/taycannon
-Beth Deutmeyer - https://github.com/bdeutmeyer
+- [Corey Vladesov](https://github.com/vladesovc)
+- [Liz Fischenich](https://github.com/lizfischstix)
+- [Taylor Cannon](https://github.com/taycannon)
+- [Beth Deutmeyer](https://github.com/bdeutmeyer)
 
-Fischer-Yates Shuffle Algorithm - via Stack Overflow
-coolors.co - color palette
-Chat GPT - advice, sytax proofreading, and encouragement
-Instructional team - advice, problem solving, error detection, and encouragement
+Resources:
+- Fischer-Yates: Shuffle Algorithm via Stack Overflow
+- coolors.co: color palette
+- Chat GPT:  advice, sytax proofreading, and encouragement
+- Instructional team: advice, problem solving, error detection, and encouragement
 
 ## License
 <a name="license"></a>
