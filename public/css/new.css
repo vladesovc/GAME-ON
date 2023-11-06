@@ -309,4 +309,14 @@ ul li a:hover{
     flex-direction: column;
     align-items: center;
 }
+@font-face {
+    font-family: 'mario'; /* Choose a name for your font */
+    src: url('../fonts/Mario-Party-Hudson-Font.ttf') format('truetype'); /* Specify the path to your TTF file */
+  }
+.mario{
+    font-family: 'mario';
+    color: white;
+    font-size: 3rem;
+  }
+  
 
